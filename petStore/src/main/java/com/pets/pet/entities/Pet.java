@@ -1,4 +1,4 @@
-package com.pets.pet.dto;
+package com.pets.pet.entities;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 

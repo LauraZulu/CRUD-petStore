@@ -1,7 +1,7 @@
-package com.pets.pet.service;
+package com.pets.pet.services;
 
-import com.pets.pet.dao.PetRepository;
-import com.pets.pet.dto.Pet;
+import com.pets.pet.repositories.PetRepository;
+import com.pets.pet.entities.Pet;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

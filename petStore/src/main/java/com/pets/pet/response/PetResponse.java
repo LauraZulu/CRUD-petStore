@@ -1,4 +1,4 @@
-package com.pets.pet.api;
+package com.pets.pet.response;
 
 public class PetResponse {
     private Long id;

@@ -1,9 +1,8 @@
-package com.pets.pet.dao;
+package com.pets.pet.repositories;
 
-import com.pets.pet.dto.Pet;
+import com.pets.pet.entities.Pet;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
-import org.springframework.data.repository.query.Param;
 
 import java.util.List;
 

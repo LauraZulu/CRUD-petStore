@@ -1,7 +1,8 @@
-package com.pets.pet.api;
+package com.pets.pet.controllers;
 
-import com.pets.pet.dto.Pet;
-import com.pets.pet.service.PetService;
+import com.pets.pet.entities.Pet;
+import com.pets.pet.request.PetRequest;
+import com.pets.pet.services.PetService;
 import org.dozer.Mapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -10,7 +11,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/pet")
-public class PetApi {
+public class PetController {
     @Autowired
     PetService petService;
 
