@@ -23,6 +23,13 @@ public class Pet {
         this.status = status;
     }
 
+    public Pet(Long id, String name, Integer category_id, String status) {
+        this.id = id;
+        this.name = name;
+        this.category_id = category_id;
+        this.status = status;
+    }
+
     public Long getId() {
         return id;
     }

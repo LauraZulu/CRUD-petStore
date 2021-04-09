@@ -10,20 +10,22 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 import java.util.List;
+import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
 public class PetTest {
     @Mock
-    PetRepository petRepository;
+    PetRepository petRepositoryMock;
 
     @InjectMocks
     PetService petService;
 
     @Test
     public void shouldAddPet(){
-        Pet pet = new Pet("Sussi",2,"available");
+        Pet pet = new Pet(2L,"Sussi",2,"available");
+        when(petRepositoryMock.saveAndFlush(pet)).thenReturn(pet);
         Pet savedPet = petService.addPet(pet);
-        assertEquals("Sussi",pet.getName());
+        assertEquals("Sussi",savedPet.getName());
     }
 
     @Test
@@ -39,22 +41,24 @@ public class PetTest {
         Pet pet = new Pet("Sussi",2,"available");
         Pet savedPet = petService.addPet(pet);
         Pet updatePet = new Pet("Sussana",1,"available");
+        when(petRepositoryMock.getById(pet.getId())).thenReturn(updatePet);
         Pet updatedPet = petService.updatePet(pet.getId(),updatePet);
+        assertEquals("Sussana",updatePet.getName());
     }
 
     @Test
     public void shouldGetPet(){
         Pet pet = new Pet("Sussi",2,"available");
         Pet savedPet = petService.addPet(pet);
+        when(petRepositoryMock.getById(pet.getId())).thenReturn(pet);
         Pet getPet = petService.getPetById(pet.getId());
-        assertEquals(getPet.getId(),pet.getId());
+        assertEquals("Sussi",getPet.getName());
     }
 
     @Test
-    public void shouldGetPets(){
+    public void shouldGetPetsStatus(){
         String status = "available";
         List<Pet> pets = petService.findPetsByStatus(status);
-        pets.stream().forEach(x -> System.out.println(x.getStatus()));
-        // assertEquals(true, pets.stream().allMatch(x->x.getStatus()=="available"));
+        assertEquals(true, pets.stream().allMatch(x->x.getStatus()=="available"));
     }
 }
