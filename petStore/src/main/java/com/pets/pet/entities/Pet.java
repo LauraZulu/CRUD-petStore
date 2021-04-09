@@ -16,6 +16,13 @@ public class Pet {
 
     public Pet(){
     }
+
+    public Pet(String name, Integer category_id, String status) {
+        this.name = name;
+        this.category_id = category_id;
+        this.status = status;
+    }
+
     public Long getId() {
         return id;
     }
